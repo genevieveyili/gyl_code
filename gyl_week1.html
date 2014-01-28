@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>an article</title>
+        <script type="text/javascript" src="../js/d3.v3.js"></script>
+        <style type="text/css">
+            body {background-color: #AA8888;
+                font-size: 10;}
+            h1 {color: #FFFFFF;
+                background-color: #000000;
+                font-family: times}
+            p {color: #362f2d;
+                font-family: helvetica}
+        </style>
+    </head>
+    <body>
+        <h1>The World As I See It</h1>
+        <p><em>Albert Einstein</em></p>
+        <p>How strange is the lot of us mortals! Each of us is here for a brief sojourn; for what purpose be knows not, though he sometimes thinks he senses it. But without deeper reflection one knows from daily life that one exists for other people-first of all for those upon whose smiles and well-being our own happiness is wholly dependent, and then for the many, unknown to us, to whose destinies we are bound by the ties of sympathy. A hundred times every day I remind myself that my inner and outer life are based on the labors of other men, living and dead, and that I must exert myself in order to give in the same measure as I have received and am still receiving. I am strongly drawn to a frugal life and am often oppressively aware that I am engrossing an undue amount of the labor of my fellow-men. I regard class distinctions as unjustified and, in the last resort, based on force. I also believe that a simple and unassuming life is good for everybody, physically and mentally. </p>
+        <p>I do not at all believe in human freedom in the philosophical sense. Everybody acts not only under external compulsion but also in accordance with inner necessity. Schopenhauer's saying, "A man can do what he wants, but not want what he wants," has been a very real inspiration to me since my youth; it has been a continual consolation in the face of life's hardships, my own and others', and an unfailing well-spring of tolerance. This realization mercifully mitigates the easily paralyzing sense of responsibility and prevents us from taking ourselves and other people all too seriously; it is conducive to a view of life which, in particular, gives humor its due.</p>
+        <p>To inquire after the meaning or object of one's own existence or that of all creatures has always seemed to me absurd from an objective point of view. And yet everybody has certain ideals which determine the direction of his endeavors and his judgments. In this sense I have never looked upon ease and happiness as ends in themselves-this ethical basis I call the ideal of a pigsty. The ideals which have lighted my way, and time after time have given me new courage to face life cheerfully, have been Kindness, Beauty, and Truth. Without the sense of kinship with men of like mind, without the occupation with the objective world, the eternally unattainable in the field of art and scientific endeavors, life would have seemed to me empty. The trite objects of human efforts-possessions, outward success, luxury-have always seemed to me contemptible.</p>
+        <p><em>(to be continued...)</em></p>
+
+        <script type="text/javascript">
+            //Width and height
+            var w = 500;
+            var h = 50;
+            
+            //Data
+            var dataset = [ 5, 10, 15, 20, 25 ];
+            
+            //Create SVG element
+            var svg = d3.select("body")
+                        .append("svg")
+                        .attr("width", 500)
+                        .attr("height", 50);
+
+            var circles = svg.selectAll("circle")
+                .data(dataset)
+                .enter()
+                .append("circle");
+
+            circles.attr("cx", function(d, i) {
+                        return (i * 50) + 25;
+                    })
+                   .attr("cy", h/2)
+                   .attr("r", function(d) {
+                        return d;
+                   });
+        </script>
+    </body>
+</html>
